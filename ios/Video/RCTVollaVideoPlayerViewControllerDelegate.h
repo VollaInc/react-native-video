@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "AVKit/AVKit.h"
 
-@protocol RCTVideoPlayerViewControllerDelegate <NSObject>
+@protocol RCTVollaVideoPlayerViewControllerDelegate <NSObject>
 - (void)videoPlayerViewControllerWillDismiss:(AVPlayerViewController *)playerViewController;
 - (void)videoPlayerViewControllerDidDismiss:(AVPlayerViewController *)playerViewController;
 @end

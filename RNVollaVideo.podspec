@@ -3,7 +3,7 @@ require "json"
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
-  s.name           = 'react-native-video'
+  s.name           = 'RNVollaVideo'
   s.version        = package['version']
   s.summary        = package['description']
   s.description    = package['description']
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "VideoCaching" do |ss|
-    ss.dependency "react-native-video/Video"
+    ss.dependency "RNVollaVideo/Video"
     ss.dependency "SPTPersistentCache", "~> 1.1.0"
     ss.dependency "DVAssetLoaderDelegate", "~> 0.3.1"
 

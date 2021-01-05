@@ -1,5 +1,5 @@
 #import <React/RCTConvert.h>
-#import "RCTVideo.h"
+#import "RCTVollaVideo.h"
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventDispatcher.h>
 #import <React/UIView+React.h>
@@ -22,7 +22,7 @@ static int const RCTVideoUnset = -1;
     #define DebugLog(...) (void)0
 #endif
 
-@implementation RCTVideo
+@implementation RCTVollaVideo
 {
   AVPlayer *_player;
   AVPlayerItem *_playerItem;
@@ -31,7 +31,7 @@ static int const RCTVideoUnset = -1;
   BOOL _playerBufferEmpty;
   AVPlayerLayer *_playerLayer;
   BOOL _playerLayerObserverSet;
-  RCTVideoPlayerViewController *_playerViewController;
+  RCTVollaVideoPlayerViewController *_playerViewController;
   NSURL *_videoURL;
   BOOL _requestingCertificate;
   BOOL _requestingCertificateErrored;
@@ -150,9 +150,9 @@ static int const RCTVideoUnset = -1;
   return self;
 }
 
-- (RCTVideoPlayerViewController*)createPlayerViewController:(AVPlayer*)player
+- (RCTVollaVideoPlayerViewController*)createPlayerViewController:(AVPlayer*)player
                                              withPlayerItem:(AVPlayerItem*)playerItem {
-  RCTVideoPlayerViewController* viewController = [[RCTVideoPlayerViewController alloc] init];
+  RCTVollaVideoPlayerViewController* viewController = [[RCTVollaVideoPlayerViewController alloc] init];
   viewController.showsPlaybackControls = YES;
   viewController.rctDelegate = self;
   viewController.preferredOrientation = _fullscreenOrientation;
@@ -193,7 +193,7 @@ static int const RCTVideoUnset = -1;
   const Float64 progressUpdateIntervalMS = _progressUpdateInterval / 1000;
   // @see endScrubbing in AVPlayerDemoPlaybackViewController.m
   // of https://developer.apple.com/library/ios/samplecode/AVPlayerDemo/Introduction/Intro.html
-  __weak RCTVideo *weakSelf = self;
+  __weak RCTVollaVideo *weakSelf = self;
   _timeObserver = [_player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(progressUpdateIntervalMS, NSEC_PER_SEC)
                                                         queue:NULL
                                                    usingBlock:^(CMTime time) { [weakSelf sendProgressUpdate]; }

@@ -1,10 +1,10 @@
-#import "RCTVideoManager.h"
-#import "RCTVideo.h"
+#import "RCTVollaVideoManager.h"
+#import "RCTVollaVideo.h"
 #import <React/RCTBridge.h>
 #import <React/RCTUIManager.h>
 #import <AVFoundation/AVFoundation.h>
 
-@implementation RCTVideoManager
+@implementation RCTVollaVideoManager
 
 RCT_EXPORT_MODULE();
 
