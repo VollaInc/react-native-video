@@ -14,7 +14,7 @@
 
 @class RCTEventDispatcher;
 #if __has_include(<react-native-video/RCTVideoCache.h>)
-@interface RCTVideo : UIView <RCTVideoPlayerViewControllerDelegate, DVAssetLoaderDelegatesDelegate, AVAssetResourceLoaderDelegate>
+@interface RCTVollaVideo : UIView <RCTVideoPlayerViewControllerDelegate, DVAssetLoaderDelegatesDelegate, AVAssetResourceLoaderDelegate>
 #elif TARGET_OS_TV
 @interface RCTVollaVideo : UIView <RCTVollaVideoPlayerViewControllerDelegate, AVAssetResourceLoaderDelegate>
 #else

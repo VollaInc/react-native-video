@@ -10,7 +10,7 @@ RCT_EXPORT_MODULE();
 
 - (UIView *)view
 {
-  return [[RCTVideo alloc] initWithEventDispatcher:self.bridge.eventDispatcher];
+  return [[RCTVollaVideo alloc] initWithEventDispatcher:self.bridge.eventDispatcher];
 }
 
 - (dispatch_queue_t)methodQueue
@@ -76,9 +76,9 @@ RCT_REMAP_METHOD(save,
         resolver:(RCTPromiseResolveBlock)resolve
         rejecter:(RCTPromiseRejectBlock)reject)
 {
-    [self.bridge.uiManager prependUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, RCTVideo *> *viewRegistry) {
-        RCTVideo *view = viewRegistry[reactTag];
-        if (![view isKindOfClass:[RCTVideo class]]) {
+    [self.bridge.uiManager prependUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, RCTVollaVideo *> *viewRegistry) {
+        RCTVollaVideo *view = viewRegistry[reactTag];
+        if (![view isKindOfClass:[RCTVollaVideo class]]) {
             RCTLogError(@"Invalid view returned from registry, expecting RCTVideo, got: %@", view);
         } else {
             [view save:options resolve:resolve reject:reject];
@@ -89,9 +89,9 @@ RCT_REMAP_METHOD(setLicenseResult,
          license:(NSString *)license
          reactTag:(nonnull NSNumber *)reactTag)
 {
-    [self.bridge.uiManager prependUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, RCTVideo *> *viewRegistry) {
-        RCTVideo *view = viewRegistry[reactTag];
-        if (![view isKindOfClass:[RCTVideo class]]) {
+    [self.bridge.uiManager prependUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, RCTVollaVideo *> *viewRegistry) {
+        RCTVollaVideo *view = viewRegistry[reactTag];
+        if (![view isKindOfClass:[RCTVollaVideo class]]) {
             RCTLogError(@"Invalid view returned from registry, expecting RCTVideo, got: %@", view);
         } else {
             [view setLicenseResult:license];
@@ -103,9 +103,9 @@ RCT_REMAP_METHOD(setLicenseResultError,
                  error:(NSString *)error
                  reactTag:(nonnull NSNumber *)reactTag)
 {
-    [self.bridge.uiManager prependUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, RCTVideo *> *viewRegistry) {
-        RCTVideo *view = viewRegistry[reactTag];
-        if (![view isKindOfClass:[RCTVideo class]]) {
+    [self.bridge.uiManager prependUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, RCTVollaVideo *> *viewRegistry) {
+        RCTVollaVideo *view = viewRegistry[reactTag];
+        if (![view isKindOfClass:[RCTVollaVideo class]]) {
             RCTLogError(@"Invalid view returned from registry, expecting RCTVideo, got: %@", view);
         } else {
             [view setLicenseResultError:error];
