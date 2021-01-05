@@ -234,11 +234,13 @@ class ReactExoplayerView extends FrameLayout implements
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         initializePlayer();
+        setKeepScreenOn(true);
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        setKeepScreenOn(false);
         /* We want to be able to continue playing audio when switching tabs.
          * Leave this here in case it causes issues.
          */
@@ -611,7 +613,7 @@ class ReactExoplayerView extends FrameLayout implements
         } else {
             initializePlayer();
         }
-        if (!disableFocus) {
+        if (!disableFocus || preventsDisplaySleepDuringVideoPlayback) {
             setKeepScreenOn(preventsDisplaySleepDuringVideoPlayback);
         }
     }
@@ -622,7 +624,7 @@ class ReactExoplayerView extends FrameLayout implements
                 setPlayWhenReady(false);
             }
         }
-        setKeepScreenOn(false);
+        setKeepScreenOn(preventsDisplaySleepDuringVideoPlayback || false);
     }
 
     private void stopPlayback() {
@@ -1215,6 +1217,7 @@ class ReactExoplayerView extends FrameLayout implements
                 pausePlayback();
             }
         }
+        setKeepScreenOn(preventsDisplaySleepDuringVideoPlayback);
     }
 
     public void setMutedModifier(boolean muted) {
