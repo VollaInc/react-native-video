@@ -12,14 +12,14 @@ import com.facebook.react.uimanager.ViewManager;
 import java.util.Collections;
 import java.util.List;
 
-public class ReactVideoPackage implements ReactPackage {
+public class ReactVollaVideoPackage implements ReactPackage {
 
     private ReactExoplayerConfig config;
 
-    public ReactVideoPackage() {
+    public ReactVollaVideoPackage() {
     }
 
-    public ReactVideoPackage(ReactExoplayerConfig config) {
+    public ReactVollaVideoPackage(ReactExoplayerConfig config) {
         this.config = config;
     }
 
