@@ -167,7 +167,7 @@ android.enableJetifier=true
 On top, where imports are:
 
 ```java
-import com.vollainc.react.ReactVideoPackage;
+import com.vollainc.react.ReactVollaVideoPackage;
 ```
 
 Add the `ReactVideoPackage` class to your list of exported packages.
